@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 using UnityEngine;
 
+//Superclass of the player and dealer. This class is inherited by the player and the dealer. They are both persons, but their behavior is different
 public class Person : MonoBehaviour
 {
     public Person()

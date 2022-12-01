@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    /// <summary>
-    /// Svojstvo koje odredjuje kartu
-    /// </summary>
+    //property that specifies the map
     public string ID { get; set; }
 
-    /// <summary>
-    /// Svojstvo koje nam kaze kolika je blackjack vrijednost karte
-    /// </summary>
+    //property that tells us what the value of a card is
     public int Card_Value { get; set; }
-    /// <summary>
-    /// Svojstvo koje govori je li karta broj ili znak sluzi za dodavanje karata na ekran
-    /// </summary>
+    //property that tell us whether the card is a face card
     public bool IDNumber
     {
         get
@@ -26,24 +20,24 @@ public class Card : MonoBehaviour
         }
     }
 
-    //konstruktori
+    //constructor
     public Card()
     { ID = ""; Card_Value = 0; }
-    public Card(string ID_karte)//prima string ID,dakle oznaku karte,brojeve standardno te "J","Q","K","A"
+    public Card(string ID_karte)//recieves the string ID, labels the number cards as standard and "J", "Q", "K", "A" as their respective values
     {
         ID = ID_karte;
-        //ako se moze pretvoriti u broj
+        //if it cant be converted into a number
         try
         {
-            Card_Value = int.Parse(ID_karte);//karte 2,3,4,5,6,7,8,9,10
+            Card_Value = int.Parse(ID_karte);//cards 2,3,4,5,6,7,8,9,10
         }
-        catch //ako se ne moze pretvoriti u broj
+        catch //if it can't be converted into a number
         {
-            if (ID_karte == "J" || ID_karte == "Q" || ID_karte == "K")//ako je karta J,Q ili K,vrijednost je 10
+            if (ID_karte == "J" || ID_karte == "Q" || ID_karte == "K")//if the card is J, Q, or K, the value is 10
             {
                 Card_Value = 10;
             }
-            else Card_Value = 11;//ako je karta as,defaultno se stavi na pocetak 11,kasnije se mjenja tijekom igre po potrebi
+            else Card_Value = 11;//if the card is an A, the default value is 11, this may be changed later in the game
         }
     }
 }
