@@ -6,68 +6,41 @@ using System.Threading.Tasks;
 
 public class Player : Person
 {
-    //konstruktori
-    /// <summary>
-    /// Osnovni kontruktor.
-    /// </summary>
-    /// <param name="_money"></param>
-    public Player(int _money) : base() //igrac koristi kontruktor bazne klase
+    //basic constructor
+    public Player(int _money) : base() //player uses a base class constructor
     {
-        //postavimo pocetne vrijednosti
-        money = _money;
-        score = 0;
-        bet = 0;
+        //set the starting values
+        Money = _money;
+        Score = 0;
+        Bet = 0;
     }
-    /// <summary>
-    /// Defaultni kontruktor.
-    /// </summary>
-    public Player() : base() { score = 0; money = 10000; }
-    private double money;
-    /// <summary>
-    /// Kolicina novca igraca
-    /// </summary>
-    public double Money
-    {
-        get { return money; }
-        set { money = value; }
-    }
+    //Default constructor
+    public Player() : base() { Score = 0; Money = 10000; }
+
+    //Amount of player money
+    public double Money { get; set; }
 
     private int cards_number;
-    public int CardsNumber//svojstvo koje nam govori koliko igrac ima karat u ruci,ako ima 7,igrac zavrsava svoju igru
+    public int CardsNumber//property for how many cards a player has in their hand, if they have 7, the round ends
     {
         get { return Hand.Count; }
     }
 
-    private int score;
-    /// <summary>
-    /// 0 izjednaceno, -1 poraz  1 pobjeda
-    /// </summary>
-    public int Score
-    {
-        get { return score; }
-        set { score = value; }
-    }
-    private int bet;
-    /// <summary>
-    /// Trenutna oklada igraca.
-    /// </summary>
-    public int Bet
-    {
-        get { return bet; }
-        set { bet = value; if (bet < 0) { bet = 0; } }
-    }
-    /// <summary>
-    /// Svojstvo koje nam dohvati ID zadnje karte igraca,zbog lakseg dodavanja karata na ekran
-    /// </summary>
+    //0 tied, 1 lost 1 win
+    public int Score { get; set; }
+
+    //The player's Bet
+    public int Bet { get; set; }
+
+    //property that retrieves the ID of the player's last card, due to easier addition of cards to the screen
     public string LastCard
     {
         get { return Hand[CardsNumber - 1].ID; }
     }
-    /// <summary>
-    /// Svojstvo koje nam vraca vrijednost zadnje karte igraca
-    /// </summary>
+
+    //property that returns the value of the player's last card
     public int LastCardValue
     {
-        get { return Hand[CardsNumber - 1].Value; }
+        get { return Hand[CardsNumber - 1].Card_Value; }
     }
 }
