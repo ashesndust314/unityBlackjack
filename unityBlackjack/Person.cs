@@ -79,9 +79,9 @@ public class Person : MonoBehaviour
     public void AddNewCard(Card newCard)
     {
         //string image path
-        string putanja = "sprites\\cards2\\" + newCard.ID.ToString() + "\\" + r.Next(1, 5).ToString() + ".png";
+        string path = "sprites\\cards2\\" + newCard.ID.ToString() + "\\" + r.Next(1, 5).ToString() + ".png";
         Hand.Add(newCard); //adding a new card to the list of cards a player has
-        Sprite card = new Sprite(putanja, LastCard_X, LastCard_Y, BlackjackGame.Sirina, BlackjackGame.Visina, "card"); //making a new sprite
+        Sprite card = new Sprite(path, LastCard_X, LastCard_Y, BlackjackGame.Sirina, BlackjackGame.Visina, "card"); //making a new sprite
         Game.AddSprite(card); //Add a card to the game
         SetNewCard(LastCard_X + 15, LastCard_Y); //setting the position of the new card
     }
